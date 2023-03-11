@@ -1,0 +1,27 @@
+{
+  "name": "badgpt",
+  "version": "0.8.0",
+  "description": "It is like ChatGPT but it is bad.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fadamaka/BadGPT.git"
+  },
+  "keywords": [
+    "GPT",
+    "ChatGPT",
+    "meme"
+  ],
+  "author": "fadamaka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fadamaka/BadGPT/issues"
+  },
+  "homepage": "https://github.com/fadamaka/BadGPT#readme",
+  "bin": {
+    "badgpt": "bin/index.js"
+  }
+}
