@@ -96,6 +96,7 @@ async function printLikeChatGPT(text) {
       setTimeout(res, Math.floor(Math.random() * (400 - 100 + 1) + 100))
     );
   }
+  process.stdout.write("\n");
 }
 function askQuestion(query) {
   const rl = readline.createInterface({
@@ -113,7 +114,7 @@ function askQuestion(query) {
 async function main() {
   console.clear();
   await printLikeChatGPT(
-    "Hello my name is Rick. I am a BadGPT Large Language Model.\n\nWhat can I help you with?\n\n\nType your prompt here:\n"
+    "Hello my name is Rick. I am a BadGPT Large Language Model.\n\nWhat can I help you with?\n\n\nType your prompt here:"
   );
 
   const ans = await askQuestion("");
