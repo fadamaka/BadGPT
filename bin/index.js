@@ -88,28 +88,38 @@ async function playSound() {
   });
   child.stdin.end();
 }
-async function main() {
-  function askQuestion(query) {
-    const rl = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout,
-    });
-
-    return new Promise((resolve) =>
-      rl.question(query, (ans) => {
-        rl.close();
-        resolve(ans);
-      })
+async function printLikeChatGPT(text) {
+  let arr = text.split(" ");
+  for (const t of arr) {
+    process.stdout.write(t + " ");
+    await new Promise((res) =>
+      setTimeout(res, Math.floor(Math.random() * (400 - 100 + 1) + 100))
     );
   }
+}
+function askQuestion(query) {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
 
-  const ans = await askQuestion(
-    "Hello my name is Rick. I am a BadGPT Large Language Model.\nWhat can I help you with?\n\n\nType your prompt here:\n"
+  return new Promise((resolve) =>
+    rl.question(query, (ans) => {
+      rl.close();
+      resolve(ans);
+    })
   );
-  playSound();
-  console.log("Generating response. Please wait...");
+}
+async function main() {
+  console.clear();
+  await printLikeChatGPT(
+    "Hello my name is Rick. I am a BadGPT Large Language Model.\n\nWhat can I help you with?\n\n\nType your prompt here:\n"
+  );
 
-  await new Promise((r) => setTimeout(r, 1000));
+  const ans = await askQuestion("");
+  playSound();
+
+  await new Promise((r) => setTimeout(r, 300));
   play();
 }
 
