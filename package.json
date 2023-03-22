@@ -23,5 +23,8 @@
   "homepage": "https://github.com/fadamaka/BadGPT#readme",
   "bin": {
     "badgpt": "bin/index.js"
+  },
+  "dependencies": {
+    "play-sound": "^1.1.5"
   }
 }

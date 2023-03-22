@@ -1,5 +1,7 @@
 #! /usr/bin/env node
 
+let player = require("play-sound")((opts = {}));
+
 const readline = require("readline");
 let spawn = require("child_process").spawn,
   child;
@@ -71,22 +73,30 @@ async function play() {
 }
 
 async function playSound() {
-  child = spawn("powershell.exe", [
-    "-c",
-    "$PlayWav=New-Object System.Media.SoundPlayer\n",
-    "$PlayWav.SoundLocation=’" + __dirname + "\\sound.wav’\n",
-    "$PlayWav.playsync()\n",
-  ]);
-  child.stdout.on("data", function (data) {
-    console.log("Powershell Data: " + data);
-  });
-  child.stderr.on("data", function (data) {
-    console.log("Powershell Errors: " + data);
-  });
-  child.on("exit", function () {
-    console.log("Powershell Script finished");
-  });
-  child.stdin.end();
+  if (process.platform === "win32") {
+    child = spawn("powershell.exe", [
+      "-c",
+      "$PlayWav=New-Object System.Media.SoundPlayer\n",
+      "$PlayWav.SoundLocation=’" + __dirname + "\\sound.wav’\n",
+      "$PlayWav.playsync()\n",
+    ]);
+    child.stdout.on("data", function (data) {
+      console.log("Powershell Data: " + data);
+    });
+    child.stderr.on("data", function (data) {
+      console.log("Powershell Errors: " + data);
+    });
+    child.on("exit", function () {
+      console.log("Powershell Script finished");
+    });
+    child.stdin.end();
+  } else {
+    player.play(__dirname + "\\sound.wav", function (err) {
+      if (err) {
+        throw err;
+      }
+    });
+  }
 }
 async function printLikeChatGPT(text) {
   let arr = text.split(" ");

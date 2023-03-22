@@ -1,0 +1,14 @@
+node_modules/.package-lock.json
+node_modules/find-exec/index.js
+node_modules/find-exec/LICENSE
+node_modules/find-exec/package.json
+node_modules/find-exec/README.md
+node_modules/find-exec/tags
+node_modules/find-exec/.github/workflows/main.js.yml
+node_modules/find-exec/test/all.js
+node_modules/find-exec/test/shims/bar
+node_modules/find-exec/test/shims/foo
+node_modules/play-sound/index.js
+node_modules/play-sound/LICENSE
+node_modules/play-sound/package.json
+node_modules/play-sound/README.md
