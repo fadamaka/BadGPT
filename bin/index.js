@@ -1,10 +1,10 @@
 #! /usr/bin/env node
 
 let player = require("play-sound")((opts = {}));
-
 const readline = require("readline");
 let spawn = require("child_process").spawn,
   child;
+
 let n = [];
 
 n[0] =
@@ -91,7 +91,7 @@ async function playSound() {
     });
     child.stdin.end();
   } else {
-    player.play(__dirname + "\\sound.wav", function (err) {
+    player.play(__dirname + "/sound.wav", function (err) {
       if (err) {
         throw err;
       }
