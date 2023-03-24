@@ -1,6 +1,6 @@
 {
   "name": "badgpt",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "It is like ChatGPT but it is bad.",
   "main": "index.js",
   "scripts": {
